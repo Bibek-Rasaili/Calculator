@@ -17,11 +17,12 @@ app.post("/", function(req, res){
   res.send("Your answer is: "+(num1+num2));
 });
 
-
+//when user enters localhost:3000/bmiCalculator, it is redirected to /bmiCalculator.html
 app.get("/bmiCalculator", function(req, res){
   res.sendFile(__dirname+"/bmiCalculator.html");
 });
 
+//This is activated when form is submitted
 app.post("/bmiCalculator", function(req, res){
   var height = parseFloat(req.body.height);
   var weight = parseFloat(req.body.weight);
@@ -32,6 +33,7 @@ app.post("/bmiCalculator", function(req, res){
   res.send("Your bmi is: "+bmi);
 });
 
+//opens a local host server on port 3000
 app.listen(3000, function(){
   console.log("Server is listening at port 3000");
 });
